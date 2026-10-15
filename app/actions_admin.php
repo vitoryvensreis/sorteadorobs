@@ -9,7 +9,7 @@ function admin_participants(): array {
   $like='%'.$q.'%';
   $cpf=digits($q);
   $where=' WHERE name LIKE ? OR CAST(id AS CHAR) LIKE ? OR phone LIKE ? OR cpf_hash=?';
-  $args=[$like,$like,'%'.$cpf.'%',strlen($cpf)===11?cpf_hash($cpf):str_repeat('0',64)];
+  $args=[$like,$like,$cpf!==''?'%'.$cpf.'%':'__NO_PHONE_MATCH__',strlen($cpf)===11?cpf_hash($cpf):str_repeat('0',64)];
  }
  $pdo=db();
  $stmt=$pdo->prepare('SELECT COUNT(*) FROM participants'.$where);
