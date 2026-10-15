@@ -1,0 +1,41 @@
+.overlay-body{margin:0;background:#00ff00!important;color:white;font-family:Arial,Helvetica,sans-serif;overflow:hidden}
+.overlay{position:relative;width:100vw;height:100vh;min-height:480px;background:#00ff00;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;isolation:isolate}
+.overlay *{box-sizing:border-box}.overlay .hidden{display:none!important}
+.overlay-top{display:flex;justify-content:space-between;align-items:center;padding:3.5vh 5vw 0;gap:20px}
+.overlay-brand{background:#151028;border:3px solid #fff;color:white;border-radius:17px;padding:1.2vh 1.7vw;font-size:clamp(17px,1.7vw,34px);font-weight:1000;letter-spacing:.02em;box-shadow:9px 9px 0 #ffdc4d}
+.overlay-brand b{color:#ffdf5d}.onair{background:#ff3664;border:3px solid white;border-radius:100px;padding:.9vh 1.5vw;font-weight:900;font-size:clamp(12px,1.25vw,26px);letter-spacing:.1em;animation:onair 1.4s infinite}
+@keyframes onair{50%{filter:brightness(1.3);transform:scale(1.04)}}
+.overlay-stage{flex:1;position:relative;min-height:0;display:grid;place-items:center;text-align:center;padding:1vh 5vw}
+.stage-kicker,.winner-kicker{display:inline-block;margin:0 0 2vh;padding:.85vh 1.6vw;background:#ffe16a;color:#141028;font-size:clamp(15px,1.6vw,32px);font-weight:1000;letter-spacing:.18em;transform:rotate(-2deg)}
+.idle-state h1{font-size:clamp(38px,6.8vw,140px);font-weight:1000;letter-spacing:-.08em;line-height:.98;margin:1.4vh 0;text-shadow:5px 7px 0 #16102c;-webkit-text-stroke:1px #1d1432}
+.idle-state em{font-style:normal;color:#ffe16a}.stage-sub{display:inline-block;background:#17112d;padding:1.3vh 2vw;border-radius:50px;font-size:clamp(13px,1.5vw,28px);font-weight:800}
+.rolling-state,.winner-state,.idle-state{width:100%;animation:enter .4s cubic-bezier(.16,1,.3,1) both}
+@keyframes enter{from{opacity:0;transform:translateY(45px) scale(.88)}to{opacity:1;transform:translateY(0) scale(1)}}
+.slot-frame{max-width:80vw;min-height:14vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:2.5vh 4vw;border:7px solid white;border-radius:2vw;background:#160e30;color:#ffe065;box-shadow:12px 14px 0 #ff3664;font-size:clamp(30px,5.5vw,100px);font-weight:1000;letter-spacing:-.05em;text-transform:uppercase;overflow-wrap:anywhere;animation:slotShake .14s infinite alternate}
+@keyframes slotShake{to{transform:translateY(3px) skewX(-1deg)}}
+.progress-line{height:1.7vh;border-radius:30px;max-width:60vw;background:#16102c;margin:3vh auto;overflow:hidden;border:2px solid white}
+.progress-line i{display:block;height:100%;width:0;background:#ffdd62;animation:fillProgress 4s linear both}
+@keyframes fillProgress{to{width:100%}}
+.winner-kicker{background:#ff396a;color:white;transform:rotate(2deg);font-size:clamp(18px,2.1vw,45px);margin-bottom:2.5vh}
+.winner-frame{max-width:82vw;min-width:58vw;background:#160f31;border:7px solid #fff;border-radius:2.4vw;padding:2.2vh 3vw;box-shadow:17px 17px 0 #ffdf61;transform:rotate(-1deg);animation:winPop .75s cubic-bezier(.2,1.8,.4,1) both}
+@keyframes winPop{from{transform:rotate(8deg) scale(.2);opacity:0}to{transform:rotate(-1deg) scale(1);opacity:1}}
+.winner-frame small{display:block;color:#ffdf61;letter-spacing:.24em;font-size:clamp(13px,1.4vw,30px);font-weight:1000}
+.winner-frame h2{font-size:clamp(32px,6vw,120px);line-height:1.02;letter-spacing:-.06em;text-transform:uppercase;margin:1.4vh 0;overflow-wrap:anywhere}
+.winner-sub{background:#ffe26c;color:#140f2c;padding:1vh 2vw;border-radius:80px;font-size:clamp(13px,1.6vw,30px);font-weight:1000;display:inline-block;margin:4vh 0 0}
+.overlay-bottom{padding:0 4vw 3vh;position:relative;z-index:3}.overlay-list-heading{display:flex;justify-content:space-between;color:#fff;background:#180f34;border-radius:15px 15px 0 0;padding:1.4vh 2vw;font-size:clamp(12px,1.1vw,22px);font-weight:900;letter-spacing:.08em;gap:18px}.overlay-list-heading strong{color:#ffe06d;white-space:nowrap}
+.ticker-viewport{background:#16102c;border:4px solid #fff;overflow:hidden;border-radius:0 0 18px 18px;min-height:8vh;display:flex;align-items:center}
+.ticker-track{display:flex;align-items:center;width:max-content;gap:18px;animation:ticker var(--duration,80s) linear infinite}
+.ticker-group{display:flex;gap:18px;flex-shrink:0;padding:1.4vh 0}
+.participant-pill{background:#fff;color:#1a1133;border:2px solid #15102a;border-radius:11px;padding:.9vh 1.6vw;white-space:nowrap;font-weight:1000;font-size:clamp(12px,1.15vw,24px)}
+.participant-pill.has-won{background:#ffe06b;color:#16102d}
+@keyframes ticker{to{transform:translateX(calc(-50% - 9px))}}
+.overlay-controls{position:absolute;bottom:18vh;right:4vw;z-index:10;display:grid;gap:8px;justify-items:end}
+.overlay-draw,#overlay-draw{background:#ffdf62;color:#1a1133;border:4px solid #fff;border-radius:14px;padding:1.4vh 2vw;font-size:clamp(14px,1.4vw,27px);font-weight:1000;box-shadow:7px 7px 0 #1c1031}
+#overlay-draw:disabled{opacity:.5}#overlay-message{color:#1b102d;background:white;padding:4px 12px;font-weight:800;border-radius:8px}
+.confetti-layer{pointer-events:none;position:absolute;inset:0;overflow:hidden}
+.confetti-piece{position:absolute;top:10%;left:50%;width:1.1vw;height:2.3vh;background:#ffe16a;animation:confettiFall 2.7s ease-out forwards}
+.confetti-piece:nth-child(4n){background:#ff366a}.confetti-piece:nth-child(4n+1){background:#fff}.confetti-piece:nth-child(4n+2){background:#6dd9ff}
+.confetti-piece:nth-child(8n+1){left:7%;animation-delay:.1s}.confetti-piece:nth-child(8n+2){left:19%;animation-delay:.3s}.confetti-piece:nth-child(8n+3){left:32%;animation-delay:.15s}.confetti-piece:nth-child(8n+4){left:45%;animation-delay:.4s}
+.confetti-piece:nth-child(8n+5){left:58%;animation-delay:.22s}.confetti-piece:nth-child(8n+6){left:72%;animation-delay:.5s}.confetti-piece:nth-child(8n+7){left:84%;animation-delay:.12s}.confetti-piece:nth-child(8n){left:95%;animation-delay:.32s}
+@keyframes confettiFall{from{transform:translateY(-25vh) rotate(0);opacity:1}to{transform:translateY(80vh) rotate(850deg);opacity:0}}
+@media(max-width:780px){.overlay-top{padding:18px}.overlay-brand{padding:12px}.overlay-bottom{padding:0 14px 16px}.overlay-list-heading{padding:10px;letter-spacing:0}.ticker-viewport{min-height:62px}.winner-frame{max-width:92vw}.winner-frame h2{font-size:clamp(27px,7vw,60px)}.overlay-controls{right:20px;bottom:120px}}
